@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test file</title>
+    <style>
+        div{
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 100%;
+            flex-direction: column;
+        }
+        p{
+            font-family: "Arial Rounded MT Bold";
+            font-size: x-large;
+            color: black  ;
+        }
+        input, button {
+            height: 40px;
+            border-radius: 10px;
+            background: antiquewhite;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="height: 300px; width: 300px; border-radius: 100%; margin: 100px">
+        <img src="https://us.images.westend61.de/0001392297pw/scenic-view-of-landscape-against-sky-during-sunset-EYF05064.jpg" height="300px" width="300px"  alt="test image">
+    </div>
+    <input type="text" placeholder="Type your sentiment here">
+    <button type="button">Send Result</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.6/axios.min.js"
+        integrity="sha512-CmAbe9oceGW5QqQ3m4+xHwUEILjqe3qxPkgdAsGL6mTDSqNcnoHDDdl+rZTwibMlnw0Sqf3IRvfsKNfIKqX/8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    document.querySelector("button").addEventListener('click',function(){
+        let textInput = document.getElementById('sentimentInput').value;
+        axios.post('/user', {
+        firstName: textinput,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    })
+</script>
+</html>
